@@ -21,6 +21,22 @@
               primary: "#1d4ed8", // blue-700
               secondary: "#3b82f6", // blue-500
               dark: "#1e293b", // slate-800
+              "accent-purple": "#7c3aed",
+              "accent-orange": "#f97316",
+              "accent-green": "#16a34a",
+              "accent-red": "#dc2626",
+              "accent-indigo": "#4f46e5",
+            },
+            boxShadow: {
+              card: "0 10px 30px rgba(0, 0, 0, 0.1)",
+              "card-lg": "0 20px 40px rgba(0, 0, 0, 0.15)",
+            },
+            letterSpacing: {
+              tight: "-0.025em",
+              normal: "0em",
+              wide: "0.025em",
+              wider: "0.05em",
+              widest: "0.1em",
             },
           },
         },
@@ -57,7 +73,7 @@
           <div class="flex justify-between h-16">
             <div class="flex items-center">
               <i
-                class="fa-solid fa-cloud-arrow-up text-primary text-2xl mr-3"
+                class="fa-solid fa-cloud-arrow-up text-accent-green text-2xl mr-3"
               ></i>
               <span class="font-bold text-xl tracking-tight text-dark"
                 >SL-GIGA共有</span
@@ -114,65 +130,76 @@
           <!-- 1. ログイン画面 -->
           <div
             v-if="currentView === 'login'"
-            class="max-w-md w-full space-y-8 bg-white p-10 rounded-xl shadow-lg"
+            class="max-w-md w-full bg-white rounded-xl shadow-card-lg overflow-hidden"
             key="login"
           >
-            <div class="text-center">
-              <i
-                class="fa-solid fa-cloud-arrow-up text-primary text-5xl mb-4"
-              ></i>
-              <h2 class="text-3xl font-extrabold text-gray-900">SL-GIGA共有</h2>
-              <p class="mt-2 text-sm text-gray-600">
-                セキュアファイル共有システム
-              </p>
-            </div>
-            <form class="mt-8 space-y-6" @submit.prevent="login">
-              <div class="rounded-md shadow-sm space-y-4">
-                <div>
-                  <label
-                    for="userId"
-                    class="block text-sm font-medium text-gray-700"
-                    >ログインID</label
-                  >
-                  <input
-                    id="userId"
-                    type="text"
-                    required
-                    class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm mt-1"
-                    placeholder="user_id"
-                  />
-                </div>
-                <div>
-                  <label
-                    for="password"
-                    class="block text-sm font-medium text-gray-700"
-                    >パスワード</label
-                  >
-                  <input
-                    id="password"
-                    type="password"
-                    required
-                    class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm mt-1"
-                    placeholder="••••••••"
-                  />
-                </div>
-              </div>
-              <div>
-                <button
-                  type="submit"
-                  class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
+            <!-- 上部カラーバー -->
+            <div
+              class="h-2 bg-gradient-to-r from-accent-green via-green-500 to-accent-green"
+            ></div>
+
+            <div class="p-10">
+              <div class="text-center">
+                <i
+                  class="fa-solid fa-cloud-arrow-up text-accent-green text-5xl mb-4"
+                ></i>
+                <h2
+                  class="text-3xl font-extrabold text-gray-900 tracking-wider"
                 >
-                  <span
-                    class="absolute left-0 inset-y-0 flex items-center pl-3"
-                  >
-                    <i
-                      class="fa-solid fa-lock text-blue-400 group-hover:text-blue-300"
-                    ></i>
-                  </span>
-                  ログイン
-                </button>
+                  SL-GIGA共有
+                </h2>
+                <p class="mt-2 text-sm text-gray-600">
+                  セキュアファイル共有システム
+                </p>
               </div>
-            </form>
+              <form class="mt-8 space-y-6" @submit.prevent="login">
+                <div class="rounded-lg space-y-4">
+                  <div>
+                    <label
+                      for="userId"
+                      class="block text-sm font-medium text-gray-700 tracking-wide"
+                      >ログインID</label
+                    >
+                    <input
+                      id="userId"
+                      type="text"
+                      required
+                      class="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent-green focus:border-transparent focus:z-10 sm:text-sm mt-1"
+                      placeholder="user_id"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="password"
+                      class="block text-sm font-medium text-gray-700 tracking-wide"
+                      >パスワード</label
+                    >
+                    <input
+                      id="password"
+                      type="password"
+                      required
+                      class="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent-green focus:border-transparent focus:z-10 sm:text-sm mt-1"
+                      placeholder="••••••••"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-gradient-to-r from-accent-green to-green-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-green transition-all"
+                  >
+                    <span
+                      class="absolute left-0 inset-y-0 flex items-center pl-3"
+                    >
+                      <i
+                        class="fa-solid fa-lock text-green-300 group-hover:text-green-200"
+                      ></i>
+                    </span>
+                    ログイン
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
 
           <!-- 2. アップロード画面 -->
@@ -181,184 +208,200 @@
             class="max-w-3xl w-full"
             key="upload"
           >
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">
-              新規ファイルアップロード
+            <h2 class="text-2xl font-bold text-gray-900 mb-6 tracking-wider">
+              <i class="fa-solid fa-file-arrow-up text-accent-green mr-2"></i
+              >新規ファイルアップロード
             </h2>
 
-            <div class="bg-white shadow rounded-lg p-6">
-              <!-- ドラッグ&ドロップエリア -->
+            <div
+              class="bg-white shadow-card rounded-xl overflow-hidden border border-gray-100"
+            >
+              <!-- 上部カラーバー -->
               <div
-                class="border-2 border-dashed rounded-lg p-12 text-center transition-colors cursor-pointer mb-8"
-                :class="{'border-primary bg-blue-50': isDragging, 'border-gray-300 hover:border-gray-400': !isDragging}"
-                @dragover.prevent="isDragging = true"
-                @dragleave.prevent="isDragging = false"
-                @drop.prevent="handleDrop"
-                @click="$refs.fileInput.click()"
-              >
-                <input
-                  type="file"
-                  ref="fileInput"
-                  class="hidden"
-                  multiple
-                  @change="handleFileSelect"
-                />
-                <i
-                  class="fa-solid fa-file-arrow-up text-5xl text-gray-400 mb-4"
-                  :class="{'text-primary': isDragging}"
-                ></i>
-                <h3 class="text-lg font-medium text-gray-900">
-                  ここにファイルをドロップ
-                </h3>
-                <p class="text-sm text-gray-500 mt-1">
-                  またはクリックしてファイルを選択
-                </p>
+                class="h-2 bg-gradient-to-r from-accent-green via-green-500 to-accent-green"
+              ></div>
 
-                <!-- 選択されたファイル表示 -->
+              <div class="p-6">
+                <!-- ドラッグ&ドロップエリア -->
                 <div
-                  v-if="selectedFiles.length > 0"
-                  class="mt-4 flex flex-col items-center"
+                  class="border-2 border-dashed rounded-xl p-12 text-center transition-all cursor-pointer mb-8"
+                  :class="{'border-accent-green bg-green-50': isDragging, 'border-gray-300 hover:border-gray-400': !isDragging}"
+                  @dragover.prevent="isDragging = true"
+                  @dragleave.prevent="isDragging = false"
+                  @drop.prevent="handleDrop"
+                  @click="$refs.fileInput.click()"
                 >
-                  <div
-                    v-for="(file, index) in selectedFiles"
-                    :key="index"
-                    class="bg-white border border-gray-200 rounded px-4 py-2 mt-2 flex items-center shadow-sm w-full max-w-md justify-between"
-                    @click.stop
-                  >
-                    <div class="flex items-center overflow-hidden">
-                      <i
-                        class="fa-regular fa-file-zipper text-gray-400 mr-2"
-                      ></i>
-                      <span class="truncate text-sm font-medium text-gray-700"
-                        >{{ file.name }}</span
-                      >
-                    </div>
-                    <button
-                      @click="removeFile(index)"
-                      class="text-red-500 hover:text-red-700 ml-4"
-                    >
-                      <i class="fa-solid fa-xmark"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 設定フォーム -->
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-1"
-                    >有効期限 <span class="text-red-500">*</span></label
-                  >
-                  <select
-                    v-model="uploadForm.expiryDays"
-                    class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md border"
-                  >
-                    <option value="7">7日間 (デフォルト)</option>
-                    <option value="3">3日間</option>
-                    <option value="1">1日間</option>
-                    <option value="30">30日間</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-1"
-                    >ダウンロードパスワード</label
-                  >
-                  <div class="flex gap-2">
-                    <input
-                      v-model="uploadForm.password"
-                      type="text"
-                      class="flex-1 mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
-                      placeholder="設定する場合は入力（任意）"
-                    />
-                    <button
-                      @click="generatePassword"
-                      type="button"
-                      class="mt-1 px-3 py-2 bg-secondary text-white rounded-md hover:bg-blue-600 text-sm font-medium whitespace-nowrap"
-                      title="6桁のランダムな英数字を生成"
-                    >
-                      自動生成
-                    </button>
-                    <button
-                      @click="copyPassword"
-                      type="button"
-                      class="mt-1 px-3 py-2 bg-gray-400 text-white rounded-md hover:bg-gray-500 text-sm font-medium whitespace-nowrap"
-                    >
-                      <i class="fa-regular fa-copy"></i>
-                    </button>
-                  </div>
-                  <p
-                    v-if="passwordCopySuccess"
-                    class="text-green-600 text-xs mt-1"
-                  >
-                    <i class="fa-solid fa-check-circle mr-1"></i>コピーしました
-                  </p>
-                </div>
-                <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-1"
-                    >削除コード</label
-                  >
-                  <div class="flex gap-2">
-                    <input
-                      v-model="uploadForm.deleteCode"
-                      type="text"
-                      readonly
-                      class="flex-1 mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm bg-gray-100"
-                      placeholder="自動生成"
-                    />
-                    <button
-                      @click="copyDeleteCode"
-                      type="button"
-                      class="mt-1 px-3 py-2 bg-gray-400 text-white rounded-md hover:bg-gray-500 text-sm font-medium whitespace-nowrap"
-                    >
-                      <i class="fa-regular fa-copy"></i>
-                    </button>
-                  </div>
-                  <p class="text-xs text-gray-500 mt-1">
-                    4桁のランダムな英数字が自動生成されます。
-                  </p>
-                  <p
-                    v-if="deleteCodeCopySuccess"
-                    class="text-green-600 text-xs mt-1"
-                  >
-                    <i class="fa-solid fa-check-circle mr-1"></i>コピーしました
-                  </p>
-                </div>
-                <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-1"
-                    >メモ・備考</label
-                  >
                   <input
-                    v-model="uploadForm.memo"
-                    type="text"
-                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
-                    placeholder="管理用メモ（共有先には見えません）"
+                    type="file"
+                    ref="fileInput"
+                    class="hidden"
+                    multiple
+                    @change="handleFileSelect"
                   />
-                </div>
-              </div>
+                  <i
+                    class="fa-solid fa-file-arrow-up text-5xl text-gray-400 mb-4 transition-colors"
+                    :class="{'text-accent-green': isDragging}"
+                  ></i>
+                  <h3 class="text-lg font-medium text-gray-900 tracking-wide">
+                    ここにファイルをドロップ
+                  </h3>
+                  <p class="text-sm text-gray-500 mt-1">
+                    またはクリックしてファイルを選択
+                  </p>
 
-              <!-- アップロードボタン -->
-              <div class="border-t border-gray-200 pt-5 flex justify-end">
-                <button
-                  @click="startUpload"
-                  :disabled="selectedFiles.length === 0 || isUploading"
-                  class="inline-flex justify-center items-center py-2 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-primary hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  <i v-if="!isUploading" class="fa-solid fa-upload mr-2"></i>
-                  <i v-else class="fa-solid fa-circle-notch fa-spin mr-2"></i>
-                  {{ isUploading ? 'アップロード中...' : 'アップロード開始' }}
-                </button>
-              </div>
-
-              <!-- モック用プログレスバー -->
-              <div v-if="isUploading" class="mt-4">
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <!-- 選択されたファイル表示 -->
                   <div
-                    class="bg-primary h-2.5 rounded-full transition-all duration-300"
-                    :style="`width: ${uploadProgress}%`"
-                  ></div>
+                    v-if="selectedFiles.length > 0"
+                    class="mt-4 flex flex-col items-center"
+                  >
+                    <div
+                      v-for="(file, index) in selectedFiles"
+                      :key="index"
+                      class="bg-white border border-gray-200 rounded-lg px-4 py-3 mt-2 flex items-center shadow-sm w-full max-w-md justify-between hover:shadow-card transition-shadow"
+                      @click.stop
+                    >
+                      <div class="flex items-center overflow-hidden">
+                        <i
+                          class="fa-solid fa-file-zipper text-accent-green mr-2"
+                        ></i>
+                        <span class="truncate text-sm font-medium text-gray-700"
+                          >{{ file.name }}</span
+                        >
+                      </div>
+                      <button
+                        @click="removeFile(index)"
+                        class="text-red-500 hover:text-red-700 ml-4"
+                      >
+                        <i class="fa-solid fa-xmark"></i>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <p class="text-right text-xs text-gray-500 mt-1">
-                  {{ uploadProgress }}% 完了
-                </p>
+
+                <!-- 設定フォーム -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-gray-700 mb-2 tracking-wide"
+                      >有効期限 <span class="text-red-500">*</span></label
+                    >
+                    <select
+                      v-model="uploadForm.expiryDays"
+                      class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent-green focus:border-transparent sm:text-sm rounded-lg border"
+                    >
+                      <option value="7">7日間 (デフォルト)</option>
+                      <option value="3">3日間</option>
+                      <option value="1">1日間</option>
+                      <option value="30">30日間</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-gray-700 mb-2 tracking-wide"
+                      >ダウンロードパスワード</label
+                    >
+                    <div class="flex gap-2">
+                      <input
+                        v-model="uploadForm.password"
+                        type="text"
+                        class="flex-1 mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-accent-green focus:border-transparent sm:text-sm"
+                        placeholder="設定する場合は入力（任意）"
+                      />
+                      <button
+                        @click="generatePassword"
+                        type="button"
+                        class="mt-1 px-3 py-2 bg-accent-green text-white rounded-lg hover:shadow-card text-sm font-bold whitespace-nowrap transition-all"
+                        title="6桁のランダムな英数字を生成"
+                      >
+                        自動生成
+                      </button>
+                      <button
+                        @click="copyPassword"
+                        type="button"
+                        class="mt-1 px-3 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500 text-sm font-bold whitespace-nowrap"
+                      >
+                        <i class="fa-solid fa-copy"></i>
+                      </button>
+                    </div>
+                    <p
+                      v-if="passwordCopySuccess"
+                      class="text-green-600 text-xs mt-1 tracking-wide"
+                    >
+                      <i class="fa-solid fa-check-circle mr-1"></i
+                      >コピーしました
+                    </p>
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-gray-700 mb-2 tracking-wide"
+                      >削除コード</label
+                    >
+                    <div class="flex gap-2">
+                      <input
+                        v-model="uploadForm.deleteCode"
+                        type="text"
+                        readonly
+                        class="flex-1 mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-accent-green focus:border-transparent sm:text-sm bg-gray-100"
+                        placeholder="自動生成"
+                      />
+                      <button
+                        @click="copyDeleteCode"
+                        type="button"
+                        class="mt-1 px-3 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500 text-sm font-bold whitespace-nowrap"
+                      >
+                        <i class="fa-solid fa-copy"></i>
+                      </button>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1 tracking-wide">
+                      4桁のランダムな英数字が自動生成されます。
+                    </p>
+                    <p
+                      v-if="deleteCodeCopySuccess"
+                      class="text-green-600 text-xs mt-1 tracking-wide"
+                    >
+                      <i class="fa-solid fa-check-circle mr-1"></i
+                      >コピーしました
+                    </p>
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-gray-700 mb-2 tracking-wide"
+                      >メモ・備考</label
+                    >
+                    <input
+                      v-model="uploadForm.memo"
+                      type="text"
+                      class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-accent-green focus:border-transparent sm:text-sm"
+                      placeholder="管理用メモ（共有先には見えません）"
+                    />
+                  </div>
+                </div>
+
+                <!-- アップロードボタン -->
+                <div class="border-t border-gray-200 pt-5 flex justify-end">
+                  <button
+                    @click="startUpload"
+                    :disabled="selectedFiles.length === 0 || isUploading"
+                    class="inline-flex justify-center items-center py-3 px-6 border border-transparent shadow-sm text-base font-bold rounded-lg text-white bg-gradient-to-r from-accent-green to-green-600 hover:shadow-card focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-green disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                  >
+                    <i v-if="!isUploading" class="fa-solid fa-upload mr-2"></i>
+                    <i v-else class="fa-solid fa-circle-notch fa-spin mr-2"></i>
+                    {{ isUploading ? 'アップロード中...' : 'アップロード開始' }}
+                  </button>
+                </div>
+
+                <!-- モック用プログレスバー -->
+                <div v-if="isUploading" class="mt-4">
+                  <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div
+                      class="bg-gradient-to-r from-accent-green to-green-600 h-2.5 rounded-full transition-all duration-300"
+                      :style="`width: ${uploadProgress}%`"
+                    ></div>
+                  </div>
+                  <p class="text-right text-xs text-gray-500 mt-1">
+                    {{ uploadProgress }}% 完了
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -369,84 +412,102 @@
             class="max-w-2xl w-full"
             key="complete"
           >
-            <div class="bg-white shadow rounded-lg p-8 text-center">
+            <div
+              class="bg-white shadow-card-lg rounded-xl overflow-hidden border border-gray-100"
+            >
+              <!-- 上部カラーバー -->
               <div
-                class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-6"
-              >
-                <i class="fa-solid fa-check text-2xl text-green-600"></i>
-              </div>
-              <h2 class="text-2xl font-bold text-gray-900 mb-2">
-                アップロードが完了しました
-              </h2>
-              <p class="text-gray-500 mb-8">
-                以下のURLを共有先に送付してください。
-              </p>
+                class="h-2 bg-gradient-to-r from-accent-green via-green-500 to-accent-green"
+              ></div>
 
-              <div
-                class="text-left bg-gray-50 p-6 rounded-lg border border-gray-200 mb-8"
-              >
-                <div class="mb-4">
-                  <label class="block text-sm font-medium text-gray-700 mb-1"
-                    >ダウンロードURL</label
+              <div class="p-8 text-center">
+                <div
+                  class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-green-100 to-green-50 mb-6"
+                >
+                  <i class="fa-solid fa-check text-2xl text-accent-green"></i>
+                </div>
+                <h2
+                  class="text-2xl font-bold text-gray-900 mb-2 tracking-wider"
+                >
+                  アップロードが完了しました
+                </h2>
+                <p class="text-gray-500 mb-8">
+                  以下のURLを共有先に送付してください。
+                </p>
+
+                <div
+                  class="text-left bg-gradient-to-br from-green-50 to-gray-50 p-6 rounded-lg border border-green-200 mb-8 shadow-sm"
+                >
+                  <div class="mb-4">
+                    <label
+                      class="block text-sm font-medium text-gray-700 mb-2 tracking-wide"
+                      >ダウンロードURL</label
+                    >
+                    <div class="flex rounded-lg shadow-sm overflow-hidden">
+                      <input
+                        type="text"
+                        readonly
+                        :value="generatedUrl"
+                        class="flex-1 min-w-0 block w-full px-3 py-2 rounded-none sm:text-sm border-gray-300 bg-white"
+                        id="share-url"
+                      />
+                      <button
+                        @click="copyToClipboard"
+                        class="inline-flex items-center px-4 py-2 border-l border-gray-300 rounded-r-lg bg-accent-green text-white hover:shadow-card font-bold text-sm transition-all"
+                      >
+                        <i class="fa-solid fa-copy mr-2"></i> コピー
+                      </button>
+                    </div>
+                    <p
+                      v-if="copySuccess"
+                      class="text-accent-green text-sm mt-2 tracking-wide"
+                    >
+                      <i class="fa-solid fa-check-circle mr-1"></i
+                      >コピーしました
+                    </p>
+                  </div>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div>
+                      <span
+                        class="block text-sm font-medium text-gray-600 tracking-wide"
+                        >有効期限</span
+                      >
+                      <span class="block text-base text-gray-900 font-bold mt-1"
+                        >2026/05/10 23:59まで</span
+                      >
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-2 gap-4 mt-4">
+                    <div>
+                      <span
+                        class="block text-sm font-medium text-gray-600 tracking-wide"
+                        >削除コード</span
+                      >
+                      <span
+                        class="block text-base text-gray-900 font-bold mt-1 tracking-widest"
+                        >A8F2K9</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4"
+                >
+                  <a
+                    :href="mailtoLink"
+                    class="inline-flex justify-center items-center py-3 px-6 border border-transparent shadow-sm text-base font-bold rounded-lg text-white bg-gradient-to-r from-accent-green to-green-600 hover:shadow-card focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-green transition-all"
                   >
-                  <div class="flex rounded-md shadow-sm">
-                    <input
-                      type="text"
-                      readonly
-                      :value="generatedUrl"
-                      class="flex-1 min-w-0 block w-full px-3 py-2 rounded-none rounded-l-md sm:text-sm border-gray-300 bg-white"
-                      id="share-url"
-                    />
-                    <button
-                      @click="copyToClipboard"
-                      class="inline-flex items-center px-4 py-2 border border-l-0 border-gray-300 rounded-r-md bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium text-sm transition-colors"
-                    >
-                      <i class="fa-regular fa-copy mr-2"></i> コピー
-                    </button>
-                  </div>
-                  <p v-if="copySuccess" class="text-green-600 text-sm mt-1">
-                    <i class="fa-solid fa-check-circle mr-1"></i>コピーしました
-                  </p>
+                    <i class="fa-solid fa-envelope mr-2"></i>
+                    メールを起動して送る
+                  </a>
+                  <button
+                    @click="switchView('upload')"
+                    class="inline-flex justify-center items-center py-3 px-6 border border-gray-300 shadow-sm text-base font-bold rounded-lg text-gray-700 bg-white hover:shadow-card focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-green transition-all"
+                  >
+                    続けてアップロード
+                  </button>
                 </div>
-                <div class="grid grid-cols-2 gap-4">
-                  <div>
-                    <span class="block text-sm font-medium text-gray-500"
-                      >有効期限</span
-                    >
-                    <span class="block text-base text-gray-900 font-medium"
-                      >2026/05/10 23:59まで</span
-                    >
-                  </div>
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                  <div>
-                    <span class="block text-sm font-medium text-gray-500"
-                      >削除コード</span
-                    >
-                    <span
-                      class="block text-base text-gray-900 font-medium tracking-widest"
-                      >A8F2K9</span
-                    >
-                  </div>
-                </div>
-              </div>
-
-              <div
-                class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4"
-              >
-                <a
-                  :href="mailtoLink"
-                  class="inline-flex justify-center items-center py-2 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-                >
-                  <i class="fa-regular fa-envelope mr-2"></i>
-                  メールを起動して送る
-                </a>
-                <button
-                  @click="switchView('upload')"
-                  class="inline-flex justify-center items-center py-2 px-6 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
-                >
-                  続けてアップロード
-                </button>
               </div>
             </div>
           </div>
@@ -460,52 +521,61 @@
             <!-- 利用停止中の表示 -->
             <div
               v-if="downloadSystemSuspended"
-              class="bg-red-50 border-2 border-red-300 rounded-xl overflow-hidden mb-4"
+              class="bg-white rounded-xl shadow-card-lg overflow-hidden border border-orange-200"
             >
-              <div class="bg-red-600 px-6 py-4">
-                <h2 class="text-xl font-bold text-white flex items-center">
+              <div
+                class="h-2 bg-gradient-to-r from-accent-orange via-orange-400 to-accent-orange"
+              ></div>
+              <div class="p-6">
+                <h2
+                  class="text-xl font-bold text-accent-orange flex items-center tracking-wide"
+                >
                   <i class="fa-solid fa-circle-exclamation mr-2"></i> 利用停止中
                 </h2>
-              </div>
-              <div class="p-6 text-center">
-                <p class="text-lg text-red-700 font-semibold mb-2">
-                  申し訳ございません
-                </p>
-                <p class="text-gray-700 mb-6">
-                  セキュリティ対策のため、現在ダウンロード・アップロード機能は利用停止中です。
-                </p>
-                <button
-                  @click="resumeDownload"
-                  class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm font-medium"
-                >
-                  利用停止解除する（テスト）
-                </button>
+                <div class="mt-4 text-center">
+                  <p class="text-lg text-orange-700 font-semibold mb-2">
+                    申し訳ございません
+                  </p>
+                  <p class="text-gray-700 mb-6 text-sm">
+                    現在ダウンロード機能は利用停止中です。システム担当者へお問い合わせください。
+                  </p>
+                  <button
+                    @click="resumeDownload"
+                    class="px-4 py-2 bg-gray-300 text-white rounded-lg hover:shadow-card text-sm font-bold transition-all"
+                  >
+                    利用停止解除する（テスト）
+                  </button>
+                </div>
               </div>
             </div>
 
             <!-- 通常のダウンロード画面 -->
             <div
               v-else
-              class="bg-white shadow-lg rounded-xl overflow-hidden border border-gray-100"
+              class="bg-white shadow-card-lg rounded-xl overflow-hidden border border-gray-100"
             >
-              <div class="bg-primary px-6 py-4">
-                <h2 class="text-xl font-bold text-white flex items-center">
-                  <i class="fa-solid fa-cloud-arrow-down mr-2"></i> SL-GIGA共有
-                </h2>
-              </div>
+              <div
+                class="h-2 bg-gradient-to-r from-accent-orange via-orange-400 to-accent-orange"
+              ></div>
               <div class="p-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-6 tracking-wider">
+                  <i
+                    class="fa-solid fa-cloud-arrow-down mr-2 text-accent-orange"
+                  ></i>
+                  ファイルをダウンロードする
+                </h3>
+
                 <div class="mb-6 pb-6 border-b border-gray-200">
-                  <h3 class="text-lg font-medium text-gray-900 mb-4">
-                    ファイルをダウンロードする。
-                  </h3>
                   <div class="flex items-start">
                     <div class="flex-shrink-0 pt-1">
                       <i
-                        class="fa-regular fa-file-archive text-4xl text-gray-400"
+                        class="fa-solid fa-file-archive text-4xl text-gray-400"
                       ></i>
                     </div>
                     <div class="ml-4">
-                      <p class="text-base font-bold text-gray-900">
+                      <p
+                        class="text-base font-bold text-gray-900 tracking-wide"
+                      >
                         Project_Data_v2.zip
                       </p>
                       <p class="text-sm text-gray-500">容量: 1.2 GB</p>
@@ -515,14 +585,16 @@
 
                 <!-- 重要情報の強調表示 -->
                 <div
-                  class="mb-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4"
+                  class="mb-6 bg-gradient-to-br from-orange-50 to-orange-50 border border-orange-200 rounded-lg p-4 shadow-sm"
                 >
                   <div>
                     <span
-                      class="text-xs font-semibold text-yellow-800 uppercase"
+                      class="text-xs font-bold text-orange-800 uppercase tracking-widest"
                       >ダウンロード期限</span
                     >
-                    <p class="text-lg font-bold text-gray-900">
+                    <p
+                      class="text-lg font-bold text-gray-900 mt-1 tracking-wide"
+                    >
                       2026/05/10 23:59
                     </p>
                   </div>
@@ -530,10 +602,11 @@
 
                 <form @submit.prevent="simulateDownload" class="space-y-4">
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                    <label
+                      class="block text-sm font-medium text-gray-700 mb-2 tracking-wide"
                       >ダウンロードパスワード</label
                     >
-                    <div class="relative rounded-md shadow-sm">
+                    <div class="relative rounded-lg shadow-sm">
                       <div
                         class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
                       >
@@ -542,14 +615,14 @@
                       <input
                         type="password"
                         required
-                        class="focus:ring-primary focus:border-primary block w-full pl-10 sm:text-sm border-gray-300 rounded-md py-2 border"
+                        class="w-full pl-10 px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-orange focus:border-transparent"
                         placeholder="パスワードを入力"
                       />
                     </div>
                   </div>
                   <button
                     type="submit"
-                    class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary mt-6"
+                    class="w-full flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-bold rounded-lg text-white bg-gradient-to-r from-accent-orange to-orange-500 hover:shadow-card focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-orange disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                   >
                     ダウンロード開始
                   </button>
@@ -557,14 +630,14 @@
 
                 <!-- 不正ファイル通報 -->
                 <div class="mt-6 pt-6 border-t border-gray-200">
-                  <p class="text-xs text-gray-600 mb-3">
+                  <p class="text-xs text-gray-600 mb-3 tracking-wide">
                     <i class="fa-solid fa-exclamation-circle mr-1"></i
                     >このファイルが不正なものの場合
                   </p>
                   <div class="flex gap-2">
                     <select
                       v-model="reportReason"
-                      class="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-primary focus:border-primary"
+                      class="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-orange focus:border-transparent"
                     >
                       <option value="">通報理由を選択</option>
                       <option value="malware">マルウェア疑い</option>
@@ -576,12 +649,15 @@
                     <button
                       @click="reportFile"
                       :disabled="!reportReason"
-                      class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                      class="px-4 py-2 bg-accent-orange text-white rounded-lg hover:shadow-card text-sm font-bold disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                     >
                       通報する
                     </button>
                   </div>
-                  <p v-if="fileReported" class="text-red-600 text-xs mt-2">
+                  <p
+                    v-if="fileReported"
+                    class="text-accent-orange text-xs mt-2 tracking-wide"
+                  >
                     <i class="fa-solid fa-check-circle mr-1"></i
                     >ファイルを通報しました。ご協力ありがとうございます。
                   </p>
@@ -597,16 +673,18 @@
             key="admin"
           >
             <div class="sm:flex sm:items-center sm:justify-between mb-6">
-              <h2 class="text-2xl font-bold text-gray-900">管理画面</h2>
+              <h2 class="text-2xl font-bold text-gray-900 tracking-wider">
+                管理画面
+              </h2>
               <div class="mt-3 sm:mt-0">
-                <div class="flex rounded-md shadow-sm">
+                <div class="flex rounded-lg shadow-sm overflow-hidden">
                   <input
                     type="text"
-                    class="focus:ring-primary focus:border-primary flex-1 block w-full rounded-none rounded-l-md sm:text-sm border-gray-300 px-3 py-2 border"
+                    class="focus:ring-2 focus:ring-accent-green focus:border-transparent flex-1 block w-full rounded-none rounded-l-lg sm:text-sm border-gray-300 px-3 py-2 border"
                     placeholder="ファイル名・作成者で検索"
                   />
                   <button
-                    class="inline-flex items-center px-3 py-2 border border-l-0 border-gray-300 rounded-r-md bg-gray-50 text-gray-500 sm:text-sm"
+                    class="inline-flex items-center px-3 py-2 border border-l-0 border-gray-300 rounded-r-lg bg-gray-50 text-gray-500 hover:bg-gray-100 sm:text-sm transition-colors"
                   >
                     <i class="fa-solid fa-search"></i>
                   </button>
@@ -614,37 +692,44 @@
               </div>
             </div>
 
-            <div class="bg-white shadow rounded-lg overflow-hidden">
+            <div
+              class="bg-white shadow-card rounded-xl overflow-hidden border border-gray-100"
+            >
+              <!-- 上部カラーバー -->
+              <div
+                class="h-2 bg-gradient-to-r from-accent-green via-green-500 to-accent-green"
+              ></div>
+
               <!-- タブ -->
               <div class="border-b border-gray-200">
                 <nav class="-mb-px flex" aria-label="Tabs">
                   <a
                     href="#"
                     @click.prevent="adminActiveTab = 'files'"
-                    :class="['w-1/4 py-5 px-2 text-center border-b-2 font-bold text-base', adminActiveTab === 'files' ? 'border-primary text-primary' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300']"
+                    :class="['flex-1 py-5 px-2 text-center border-b-2 font-bold text-base tracking-wide transition-colors', adminActiveTab === 'files' ? 'border-accent-green text-accent-green' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300']"
                   >
-                    アップロードファイル
+                    <i class="fa-solid fa-files mr-1"></i> アップロードファイル
                   </a>
                   <a
                     href="#"
                     @click.prevent="adminActiveTab = 'users'"
-                    :class="['w-1/4 py-5 px-2 text-center border-b-2 font-bold text-base', adminActiveTab === 'users' ? 'border-primary text-primary' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300']"
+                    :class="['flex-1 py-5 px-2 text-center border-b-2 font-bold text-base tracking-wide transition-colors', adminActiveTab === 'users' ? 'border-accent-green text-accent-green' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300']"
                   >
-                    ユーザー管理
+                    <i class="fa-solid fa-users mr-1"></i> ユーザー管理
                   </a>
                   <a
                     href="#"
                     @click.prevent="adminActiveTab = 'settings'"
-                    :class="['w-1/4 py-5 px-2 text-center border-b-2 font-bold text-base', adminActiveTab === 'settings' ? 'border-primary text-primary' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300']"
+                    :class="['flex-1 py-5 px-2 text-center border-b-2 font-bold text-base tracking-wide transition-colors', adminActiveTab === 'settings' ? 'border-accent-green text-accent-green' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300']"
                   >
-                    設定
+                    <i class="fa-solid fa-sliders mr-1"></i> 設定
                   </a>
                   <a
                     href="#"
                     @click.prevent="adminActiveTab = 'logs'"
-                    :class="['w-1/4 py-5 px-2 text-center border-b-2 font-bold text-base', adminActiveTab === 'logs' ? 'border-primary text-primary' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300']"
+                    :class="['flex-1 py-5 px-2 text-center border-b-2 font-bold text-base tracking-wide transition-colors', adminActiveTab === 'logs' ? 'border-accent-green text-accent-green' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300']"
                   >
-                    操作ログ
+                    <i class="fa-solid fa-list mr-1"></i> 操作ログ
                   </a>
                 </nav>
               </div>
@@ -656,49 +741,49 @@
                     <tr>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
                       >
                         ID
                       </th>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
                       >
                         ファイル名
                       </th>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
                       >
                         作成者
                       </th>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
                       >
                         容量
                       </th>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
                       >
                         アップロード日時
                       </th>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
                       >
                         有効期限
                       </th>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-6 py-3 text-center text-xs font-bold text-gray-700 uppercase tracking-wider"
                       >
                         DL回数
                       </th>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-6 py-3 text-right text-xs font-bold text-gray-700 uppercase tracking-wider"
                       >
                         操作
                       </th>
@@ -708,7 +793,7 @@
                     <tr
                       v-for="file in adminFiles"
                       :key="file.id"
-                      class="hover:bg-gray-50"
+                      class="hover:bg-gray-50 transition-colors"
                       :class="{'bg-red-50': file.isReported}"
                     >
                       <td
@@ -718,7 +803,7 @@
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap">
                         <div class="flex items-center">
-                          <i class="fa-regular fa-file text-gray-400 mr-2"></i>
+                          <i class="fa-solid fa-file text-gray-400 mr-2"></i>
                           <div>
                             <span class="text-sm font-medium text-gray-900"
                               >{{ file.name }}</span
@@ -751,14 +836,14 @@
                       <td class="px-6 py-4 whitespace-nowrap">
                         <span
                           @click="editExpiryDate(file.id)"
-                          class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 cursor-pointer hover:bg-green-200"
+                          class="px-3 py-1 inline-flex text-xs leading-5 font-bold rounded-lg bg-green-100 text-green-800 cursor-pointer hover:shadow-card transition-all"
                           title="クリックで変更"
                         >
                           {{ file.expiryDate }}
                         </span>
                       </td>
                       <td
-                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center"
+                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center font-medium"
                       >
                         {{ file.dlCount }}
                       </td>
@@ -768,14 +853,14 @@
                         <button
                           v-if="file.isReported"
                           @click="cancelReportFile(file.id)"
-                          class="text-green-600 hover:text-green-900 text-lg"
+                          class="text-green-600 hover:text-green-900 text-lg transition-colors"
                           title="通報を解除"
                         >
                           <i class="fa-solid fa-check-circle"></i>
                         </button>
                         <button
                           @click="deleteFile(file.id)"
-                          class="text-red-600 hover:text-red-900 text-lg"
+                          class="text-red-600 hover:text-red-900 text-lg transition-colors"
                           title="削除"
                         >
                           <i class="fa-solid fa-trash-can"></i>
@@ -799,41 +884,6 @@
                         <span class="font-medium">4</span> 件を表示
                       </p>
                     </div>
-                    <div>
-                      <nav
-                        class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px"
-                        aria-label="Pagination"
-                      >
-                        <a
-                          href="#"
-                          class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-                        >
-                          <i class="fa-solid fa-chevron-left"></i>
-                        </a>
-                        <a
-                          href="#"
-                          aria-current="page"
-                          class="z-10 bg-blue-50 border-primary text-primary relative inline-flex items-center px-4 py-2 border text-sm font-medium"
-                          >1</a
-                        >
-                        <a
-                          href="#"
-                          class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
-                          >2</a
-                        >
-                        <a
-                          href="#"
-                          class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
-                          >3</a
-                        >
-                        <a
-                          href="#"
-                          class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-                        >
-                          <i class="fa-solid fa-chevron-right"></i>
-                        </a>
-                      </nav>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -848,37 +898,37 @@
                     <tr>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
                       >
                         ユーザーID
                       </th>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
                       >
                         作成日
                       </th>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
                       >
                         最終ログイン
                       </th>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
                       >
                         アップロード数
                       </th>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
                       >
                         利用停止FLG
                       </th>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-6 py-3 text-right text-xs font-bold text-gray-700 uppercase tracking-wider"
                       >
                         操作
                       </th>
@@ -888,10 +938,10 @@
                     <tr
                       v-for="user in adminUsers"
                       :key="user.id"
-                      class="hover:bg-gray-50"
+                      class="hover:bg-gray-50 transition-colors"
                     >
                       <td
-                        class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+                        class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900"
                       >
                         {{ user.id }}
                       </td>
@@ -912,7 +962,7 @@
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap">
                         <span
-                          :class="['px-2 inline-flex text-xs leading-5 font-semibold rounded-full', user.suspended ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800']"
+                          :class="['px-3 py-1 inline-flex text-xs leading-5 font-bold rounded-lg transition-colors', user.suspended ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800']"
                         >
                           {{ user.suspended ? '停止中' : '利用可' }}
                         </span>
@@ -922,7 +972,7 @@
                       >
                         <button
                           @click="deleteUser(user.id)"
-                          class="text-red-600 hover:text-red-900 text-lg"
+                          class="text-red-600 hover:text-red-900 text-lg transition-colors"
                           title="削除"
                         >
                           <i class="fa-solid fa-trash-can"></i>
@@ -937,8 +987,12 @@
               <div v-else-if="adminActiveTab === 'settings'" class="p-6">
                 <div class="space-y-8">
                   <!-- 削除コード設定 -->
-                  <div class="border-b border-gray-200 pb-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-4">
+                  <div
+                    class="border-l-4 border-accent-green pl-6 bg-green-50 -mx-6 px-6 py-4"
+                  >
+                    <h3
+                      class="text-lg font-bold text-gray-900 mb-4 tracking-wide"
+                    >
                       削除コード設定
                     </h3>
                     <div class="flex items-center gap-4">
@@ -946,27 +1000,32 @@
                         <input
                           v-model="adminSettings.deleteCodeEnabled"
                           type="checkbox"
-                          class="rounded border-gray-300 text-primary focus:ring-primary"
+                          class="rounded border-gray-300 text-accent-green focus:ring-accent-green w-4 h-4"
                         />
-                        <span class="ml-2 text-sm text-gray-700"
+                        <span class="ml-2 text-sm text-gray-700 font-medium"
                           >削除コード機能を有効にする</span
                         >
                       </label>
-                      <span class="text-sm text-gray-500">
-                        {{ adminSettings.deleteCodeEnabled ? '有効' : '無効' }}
-                      </span>
+                      <span class="text-sm text-gray-600 font-medium"
+                        >{{ adminSettings.deleteCodeEnabled ? '有効' : '無効'
+                        }}</span
+                      >
                     </div>
                   </div>
 
                   <!-- ファイルサイズ上限設定 -->
-                  <div class="border-b border-gray-200 pb-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-4">
+                  <div
+                    class="border-l-4 border-accent-green pl-6 bg-green-50 -mx-6 px-6 py-4"
+                  >
+                    <h3
+                      class="text-lg font-bold text-gray-900 mb-4 tracking-wide"
+                    >
                       アップロードファイル上限サイズ
                     </h3>
                     <div class="flex items-end gap-4">
                       <div class="flex-1 max-w-xs">
                         <label
-                          class="block text-sm font-medium text-gray-700 mb-1"
+                          class="block text-sm font-bold text-gray-700 mb-2 tracking-wide"
                           >最大サイズ (GB)</label
                         >
                         <input
@@ -974,12 +1033,12 @@
                           type="number"
                           min="1"
                           max="100"
-                          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-accent-green focus:border-transparent sm:text-sm"
                         />
                       </div>
                       <button
                         @click="saveMaxUploadSize"
-                        class="px-4 py-2 bg-primary text-white rounded-md hover:bg-blue-800 text-sm font-medium"
+                        class="px-4 py-2 bg-accent-green text-white rounded-lg hover:shadow-card text-sm font-bold transition-all"
                       >
                         保存
                       </button>
@@ -987,14 +1046,18 @@
                   </div>
 
                   <!-- 一日のアップロード数上限設定 -->
-                  <div class="border-b border-gray-200 pb-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-4">
+                  <div
+                    class="border-l-4 border-accent-green pl-6 bg-green-50 -mx-6 px-6 py-4"
+                  >
+                    <h3
+                      class="text-lg font-bold text-gray-900 mb-4 tracking-wide"
+                    >
                       一日のアップロード数上限
                     </h3>
                     <div class="flex items-end gap-4">
                       <div class="flex-1 max-w-xs">
                         <label
-                          class="block text-sm font-medium text-gray-700 mb-1"
+                          class="block text-sm font-bold text-gray-700 mb-2 tracking-wide"
                           >上限数</label
                         >
                         <input
@@ -1002,12 +1065,12 @@
                           type="number"
                           min="1"
                           max="1000"
-                          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-accent-green focus:border-transparent sm:text-sm"
                         />
                       </div>
                       <button
                         @click="saveDailyUploadsLimit"
-                        class="px-4 py-2 bg-primary text-white rounded-md hover:bg-blue-800 text-sm font-medium"
+                        class="px-4 py-2 bg-accent-green text-white rounded-lg hover:shadow-card text-sm font-bold transition-all"
                       >
                         保存
                       </button>
@@ -1015,20 +1078,24 @@
                   </div>
 
                   <!-- 一括利用停止 -->
-                  <div class="border-b border-gray-200 pb-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-4">
+                  <div
+                    class="border-l-4 border-accent-red pl-6 bg-red-50 -mx-6 px-6 py-4"
+                  >
+                    <h3
+                      class="text-lg font-bold text-gray-900 mb-4 tracking-wide"
+                    >
                       セキュリティ対策
                     </h3>
-                    <div class="bg-red-50 border border-red-200 rounded-md p-4">
-                      <p class="text-sm text-gray-700 mb-4">
+                    <div>
+                      <p class="text-sm text-gray-700 mb-4 font-medium">
                         <i
-                          class="fa-solid fa-exclamation-triangle text-red-600 mr-2"
-                        ></i>
-                        すべてのユーザーのアップロード・ダウンロード機能を一括で停止します。
+                          class="fa-solid fa-exclamation-triangle text-accent-red mr-2"
+                        ></i
+                        >すべてのユーザーのアップロード・ダウンロード機能を一括で停止します。
                       </p>
                       <button
                         @click="suspendAllUsers"
-                        class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 text-sm font-medium"
+                        class="px-4 py-2 bg-gradient-to-r from-accent-red to-red-600 text-white rounded-lg hover:shadow-card text-sm font-bold transition-all"
                       >
                         全ユーザーを利用停止する
                       </button>
@@ -1047,25 +1114,25 @@
                     <tr>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
                       >
                         日時
                       </th>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
                       >
                         ユーザー
                       </th>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
                       >
                         操作内容
                       </th>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider"
                       >
                         ステータス
                       </th>
@@ -1075,7 +1142,7 @@
                     <tr
                       v-for="log in adminLogs"
                       :key="log.id"
-                      class="hover:bg-gray-50"
+                      class="hover:bg-gray-50 transition-colors"
                     >
                       <td
                         class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
@@ -1083,7 +1150,7 @@
                         {{ log.timestamp }}
                       </td>
                       <td
-                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-700"
+                        class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-700"
                       >
                         {{ log.user }}
                       </td>
@@ -1094,7 +1161,7 @@
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap">
                         <span
-                          :class="['px-2 inline-flex text-xs leading-5 font-semibold rounded-full', log.status === '成功' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800']"
+                          :class="['px-3 py-1 inline-flex text-xs leading-5 font-bold rounded-lg transition-colors', log.status === '成功' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800']"
                         >
                           {{ log.status }}
                         </span>
@@ -1126,10 +1193,8 @@
 
       createApp({
         setup() {
-          // 画面状態管理: 'login', 'upload', 'complete', 'download', 'admin'
           const currentView = ref("login");
 
-          // ログイン処理
           const login = () => {
             currentView.value = "upload";
           };
@@ -1143,7 +1208,6 @@
             currentView.value = view;
           };
 
-          // アップロード関連
           const isDragging = ref(false);
           const selectedFiles = ref([]);
           const isUploading = ref(false);
@@ -1153,7 +1217,6 @@
           const passwordCopySuccess = ref(false);
           const deleteCodeCopySuccess = ref(false);
 
-          // アップロードフォーム
           const uploadForm = ref({
             expiryDays: "7",
             password: "",
@@ -1161,7 +1224,6 @@
             memo: "",
           });
 
-          // ページロード時に削除コードを生成
           const generateDeleteCode = () => {
             const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             let code = "";
@@ -1171,10 +1233,8 @@
             uploadForm.value.deleteCode = code;
           };
 
-          // ページ初期化時に削除コードを生成
           generateDeleteCode();
 
-          // パスワード自動生成（6桁英数字）
           const generatePassword = () => {
             const chars =
               "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -1185,21 +1245,17 @@
               );
             }
             uploadForm.value.password = password;
-            // 自動でクリップボードにコピー
             copyToClipboardPassword(password);
           };
 
-          // パスワードをクリップボードにコピー
           const copyPassword = () => {
             copyToClipboardPassword(uploadForm.value.password);
           };
 
-          // 削除コードをクリップボードにコピー
           const copyDeleteCode = () => {
             copyToClipboardDeleteCode(uploadForm.value.deleteCode);
           };
 
-          // 通用的なクリップボードコピー関数（パスワード）
           const copyToClipboardPassword = (text) => {
             if (!text) return;
             try {
@@ -1217,7 +1273,6 @@
             }
           };
 
-          // 通用的なクリップボードコピー関数（削除コード）
           const copyToClipboardDeleteCode = (text) => {
             if (!text) return;
             try {
@@ -1235,7 +1290,6 @@
             }
           };
 
-          // Fallback パスワード
           const fallbackCopyPassword = (text) => {
             const el = document.createElement("textarea");
             el.value = text;
@@ -1247,7 +1301,6 @@
             setTimeout(() => (passwordCopySuccess.value = false), 3000);
           };
 
-          // Fallback 削除コード
           const fallbackCopyDeleteCode = (text) => {
             const el = document.createElement("textarea");
             el.value = text;
@@ -1291,7 +1344,6 @@
             isUploading.value = true;
             uploadProgress.value = 0;
 
-            // プログレスバーのシミュレーション
             const interval = setInterval(() => {
               uploadProgress.value += 10;
               if (uploadProgress.value >= 100) {
@@ -1305,9 +1357,7 @@
             }, 200);
           };
 
-          // 完了画面関連
           const copyToClipboard = () => {
-            // 汎用的なコピー処理 (Fallback含む)
             try {
               navigator.clipboard
                 .writeText(generatedUrl.value)
@@ -1343,7 +1393,6 @@
             return `mailto:?subject=${subject}&body=${body}`;
           });
 
-          // ダウンロード画面関連
           const downloadPassword = ref("Pass123");
           const deleteCode = ref("A8F2");
           const downloadSystemSuspended = ref(false);
@@ -1366,25 +1415,21 @@
             }, 1000);
           };
 
-          // ファイル通報機能
           const reportFile = () => {
             if (reportReason.value) {
               fileReported.value = true;
               downloadSystemSuspended.value = true;
-              // ファイルをレポート状態にマークし、管理画面でアラート表示
               setTimeout(() => {
                 alert("ファイルを通報しました。管理者が確認いたします。");
               }, 300);
             }
           };
 
-          // 利用停止解除（テスト）
           const resumeDownload = () => {
             downloadSystemSuspended.value = false;
             alert("利用停止が解除されました。");
           };
 
-          // 管理画面関連
           const adminActiveTab = ref("files");
 
           const adminFiles = ref([
@@ -1434,7 +1479,6 @@
             },
           ]);
 
-          // ユーザー管理データ
           const adminUsers = ref([
             {
               id: "suzuki.taro",
@@ -1466,14 +1510,12 @@
             },
           ]);
 
-          // 設定データ
           const adminSettings = ref({
             deleteCodeEnabled: true,
             maxUploadSize: 10,
             maxDailyUploads: 50,
           });
 
-          // 操作ログデータ
           const adminLogs = ref([
             {
               id: 1,
@@ -1524,7 +1566,6 @@
           const editExpiryDate = (id) => {
             const file = adminFiles.value.find((f) => f.id === id);
             if (file) {
-              // モック用：有効期限を仮に延長する
               const date = new Date();
               date.setDate(date.getDate() + 7);
               const year = date.getFullYear();
